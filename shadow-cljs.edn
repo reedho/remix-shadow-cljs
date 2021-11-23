@@ -1,0 +1,20 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[funcool/rumext "2021.05.12-1"]
+  [cider/cider-nrepl "0.27.2"]
+  [cider/piggieback "0.5.3"]]
+
+ :builds
+ {:remix {:target           :esm
+          :output-dir       "app"
+          :modules          {:main {:exports {default ridho.app/Main}}}
+          :js-options       {:js-provider :require}
+          :compiler-options {:output-feature-set :es-next}
+          }
+  }
+ }
